@@ -1,0 +1,51 @@
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbdbbbbbbbbbbb
+b                    1               t        t                            b     b      b
+b  g       t      t    bbbbb             s                                 b     b      b
+b                      b   b                                     t         b  c  b      b
+b                      b l b                                  s      s                  b
+bbbbb    1             b   b   bbbbbbbbbbbbbbbbbbbbb                                    b
+b   x     bbbbbbbbbbb  bbbbb   b                   b         bbbbbbbbbbb                b
+b     s                  c     b     cccccccccc    h                           g        b
+b                t        l    b s   cccccccccc    b                                    b
+b    bbbbb                     b                   h                                    b
+b                  l   x       bbbbbbbbbbbbbbbbbbbbb                                    b
+b                1     1              c  g  c              t          t        t        b
+b      g  bbbbbbbbbbbbbbbbbb                                                            b
+b  fP     b c          c           x    s   x                      g        g           b
+b         b      x                                                                      b
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbdbbbbbbbbbbb
+b                                    t        t                                         b
+b  g        t     t                      s                                              b
+b                                        2                          2    m              b
+b               l      b l b                     c      m    c           c         l    b
+bbbbb                  b l b                                                            b
+b         bbbbbbbbbbbbbbbbbb       l    1        1          1         l                 b
+b                   cc b                2                                      g        b
+b                   cc b                      m    4                  4                 b
+b    bbbbbbbbbbbbbbbbbbb       b         l         h        bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+b                      b       b                   b                    l               b
+b  d    1      c   c   b       b       cc  g  cc   b   c c c c c c c c c c c c c c c c  b
+b                      b      m                    b                                    b
+b               fP     b           x    s   x      b          h     g    h   g     h    b
+b                      b                           b                                    b
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbdbbbbbbbbbbb
+b                          g         t        t                            t            b
+b  g    1   t     t                      s          3          l     3           x      b
+b                                                                                       b
+b             4        b l b               4     c           c           c              b
+bbbbb                  b l b        x                                       1           b
+b         bbbbbbbbbbbbbbbbbb            1        1     l    1     1   3                 b
+b              h    cc b         g                                             g        b
+b              h    cc b          4                     x    4        1                 b
+b    bbbbbbbbbbbbbbbbbbb       b      x    1       h      bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+b                  1   b       b       h           b                                    b
+b       1      c   c   b       b       cc  g  cc   b   c c c c c c c c c c c c c c c c  b
+b   d                  b                           b                                    b
+b               fP     b wwwwwwwwwwwwwwwwwwwwwwwwwwwwww       h     g    h   g     h    b
+b                      b wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+!
+
+

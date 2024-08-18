@@ -1,0 +1,131 @@
+README :
+
+Title:
+The snow man 
+
+Students info:
+Odaya Attia - ID: 346328040
+
+General Description :
+The snow man 
+
+the program has 2 main classes –  Board and controller.
+(The design of the game will be in the style of snow)
+Game description: The player must collect all the coins on the map in order for the gate to the next 
+level to open and score as many points as possible. During the game the player has to run away from 
+the enemies that move on the screen in a smart way to reach the door to the next level (after taking all the coins).
+The player will be able to shoot at the enemies and kill them.
+The player will be able to take gifts during the game and he will not know if they are good or bad gifts they will look the same,
+Gifts: 
+1. Bullet
+2. Scoring.
+3. Speed of time.
+
+Additional elements such as trees on the map and other things that will be added during the project.
+• 2 types of enemies stupid/smart
+• The game will have a single player option
+• The game will be a scroller, meaning the screen moves left and right
+• The player can be disqualified for touching enemies
+• The goal is to finish the stage and get as high a score as possible and finish all the stages.
+
+Design Patern  : Command, Singelton , Strategy , Factory.
+
+1- Singelton
+
+FONT: m_fonts[FONT] in array is enum . Font is between 0 and 2. Getfontgame() it can receive nunber up to 2 . 
+If the nunber not included in font then not correct and returns a default value.
+
+TEXTURE: Two texture array
+1- PLAYER, STATIC, MOVING: 
+2- BACKGROUND ;
+Easier to do on two tables. Everything still works with enums.
+We want to load  all the textures in the game memory.
+In the Singelton texture constructor, each photo is in the array .
+Each texture has a place in the enum array. We must know everything where it is because if I send the type in the function gettexture().
+We must send the type because there is the texture of BACKGROUND AND OF PLAYER (character).
+gettexture() if it is equal to the type of the BACKGROUND and the num is less than BACKGROUND then returns the texture. We do the same for CHARACTERE.
+
+SOUND: Same array of music with enum . Constructor outputs all sounds and with function setBuffer[] it uses it.
+Playmusic function: As we have two types of music, we choose it with int& . Check if we are in enum then we can go back.
+
+2 - MENU AND COMMAND
+MENU
+
+Main:  
+Draw a Game Menu object it runs the menu. claim the texture  need from the constructor. Add the buttons and use the command design pattern.
+In the menu there are three buttons. After we draw the menu we activate the menu.
+GAME MENU : She does draw(), adds the button, constructor which receives texture, activates.
+
+COMMAND: We use it to make things easier and reduce the code.
+The class command is abstract. This function is virtual so all classes that inherit from command must have this function virtual bool executeTask(sf::RenderWindow& window) = 0;
+All menu buttons inherit from comment and override executeTask().
+(startgame, quitgame, prevgame and info game).
+
+GAME MENU: If we press buttonPressed , we check if I press the button , which activates the menu.
+We check if there is an option. If we press other than the button we want nothing to happen. But if we press start we want something to happen.
+On option we go on game operationchosen which is in game menu . 
+We had a vector m_option then we say come we pass on m_options and we check if I have pressed the correct text receives text and checks according to its location (according to event).
+ i is option , it is the button you press. If not found, returns -2.
+After always in activate , we want to perform the action on which we have chosen it is: performAction (option, window). Option is the cell in the table that we have pressed.
+performAction() : perform the action if it is different from 2 then I activate it. In this case if it is not equal to -2 . m_options[option] takes second and puts executetask although 
+don't know which one it is (quit, start or info). But option [option] tells  doing. After  dodraw and return temp because it's a bool function. 
+Add button() : prev and button position , and I activate the button.
+DRAW() : It cleans the board, draws draw() the m_backround window. After doing for on m_option and asking it to draw the getText(). It asks for password on the options table (start, info ), 
+prints the text which is in main.
+Prev game: Exit from the menu returns false, this happens in the activate function. When the function ends returns to the main menu because I return to it fallse
+Quit game: clean the window, show it, leave 3 seconds and exit the game.
+
+3 - INHERITANCE AND STATEGY
+MOVEBEHAVIOR: it's strategy we also have a function virtual pure virtual void moveObject(MovingObject&) = 0;  
+movebahavier are inherit all kinds of move (SmartMove, RandomMove, StiteMove).
+MoveSprite receives direction, velocity and moves.
+
+MovingObject class
+It is pointer std::unique_ptr<MoveBehavior> m_moveBehavior; In movingObject. From movingobject  can point to sprite, random,smart, with this object.
+PLAYER: Draw object StriteMove();
+ENNEMY: Draw object RandomMove();
+GHOST: Draw object SmartMove(); 
+MoveObject() changes depending on the level and where you put it.
+MoveBehavior is a variable of moveBehavior is like all moves inherit it or can use it as you want.
+Move is from movingobject(), we can't get directly to the movebehavior function because class movingobjct is a member there so it's not possible so we do this Moving object function.
+In enemy class there is a move() function, we add the texture we will see after, we make time pass * the speed of the enemy and after
+m_moveBehavior->moveObject(*this); there it moves and suddenly it goes to randomdemon();
+MOVE
+- STRITE MOVE : it receives obj(it's this), then after we have getPrevDirection().x , after we do according to the speed of the objc and after we move it.
+- SMART MOVE: Reflected on vector if the wind is on (5,6) and player(10,6) then we reflected on vector, we reflect on vector and distance . 
+getPrevDirection().x keeps the direction of the player, it's the player's last move but that obj.getSprite().getPosition().x is the wind. 
+After all the conditions it is to lower the speed if it too much porch of the player. If distance.x > MAXIMUM_SPEED then we lower the speed. And then we do moveSprite().
+- RANDOM MOVE: Random at first if it hits a wall then it changes direction. M_number++ = 0; m_changeDir= 1000;
+when it reaches 0 changes direction. Each time we do steps  then we increase its M_number . if we arrive at M_number = m_changeDir. We change direction.
+
+
+BOARD
+- READBOARD()
+Open the map, clean all the objects, we all read according to the char. If row !=0 then we eat the enter .
+In board.txt there are cells between each line so we want it to eat those cells.
+Read the next cell and check if it is! if so, it is game over and can therefore exit the function.
+After we reflect or put each object according to the pixels. 
+
+HANDLE COLLISION: Checks all Objects.  We check if one is different from the other then we apply the collision. Checks if there is wind collision.
+With enemy or other... Then we do the same for static objects. After we check if the player is dead if so we keep the scorec. 
+Segkg() if it fails it returns to its starting position.
+deletedeadObject().Then when the player passes on an object, it must be deleted with function deletedeadObject(). 
+If this object is dead (with isDead()) then it is deleted by going to i and deleting this object.
+Now the same for the bullet  if he is dead then we erase him from the board.
+BOOL isHappenedCollision() :  checks if there is a collision between two objects separated by a distance if we say that there is a collision when they are separated returns false.
+If they are on top of each other then returns true and there is a collision. Objc1 and Objct 2 are the two objects that check if there is a collision.
+PROCESS COLISION in class handle collision().
+Draw all the possible collisions, if it's the same collision twice, we can use the same function.
+Ex for player and gift . I check if getNumber > 0 and then according to the result I output the sound and then I print the score. And then erase the room.
+Player and lightning we add speed, erase lighning and make extra speed function. It is a function in player.
+Enemy and Brick: if he encounters a brick, we want him to go back. When enemy enters the wall if we make him moveback() he will always stay on the wall trying to change direction. By doing moveback() it returns to its position before. When it goes back it can change direction.
+Player and Brick: If the user enters the wall, we also make him moveback() so he is not given the possibility of entering the object.
+Void moveobject(): if player stands on stand, nothing is done except if he moves and defines new direction and move is applied to him. This is the move of movebehvior().
+GetLocationPlayer: returns player position, returns sprite.
+MoveAutoObject(): I pass over all the moving objects and I transform it and vent. setPrevDirection() is the position of the player, 
+so we have to keep the position of the player for ghost . Otherwise we do move() on all the move objects.
+PlayerDinwin(): player wins when he gets to the door
+
+
+
+GIFT Choose a number between -10 and 22 I enter a nbr and once I will have a gift voucher once object.And return the sum.
